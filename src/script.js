@@ -1,6 +1,15 @@
 import * as THREE from "https://cdn.jsdelivr.net/npm/three@latest/build/three.module.min.js";
 
 document.addEventListener("DOMContentLoaded", () => {
+
+  const zaenalosVM = document.querySelector("#zaenalos-vm");
+  if (zaenalosVM) {
+    zaenalosVM.addEventListener("click", (event) => {
+      event.preventDefault();
+      alert("Sorry but this is a private project.");
+    });
+  }
+
   const scene = new THREE.Scene();
   scene.background = new THREE.Color(0x000001);
 
