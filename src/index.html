@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
@@ -79,7 +79,7 @@
 		<section id="home" class="relative">
 			<div
 				id="home-hero"
-				class="min-h-screen flex flex-col items-center justify-center px-8 text-center relative overflow-hidden"
+				class="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-8 text-center"
 			>
 				<div class="pointer-events-none absolute inset-0">
 					<div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(0,255,255,0.12),transparent_60%)]"></div>
@@ -87,59 +87,46 @@
 				</div>
 
 				<h1
-					class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 via-sky-400 to-blue-600"
+					class="mb-6 bg-gradient-to-r from-cyan-300 to-blue-600 bg-clip-text text-4xl font-extrabold tracking-tight text-transparent md:text-6xl"
 					data-aos="zoom-in"
 				>
 					Zaenalos
 				</h1>
-				<p class="max-w-2xl text-gray-300 text-lg md:text-xl leading-relaxed" data-aos="fade-up" data-aos-delay="120">
+				<p class="max-w-2xl text-lg leading-relaxed text-gray-300 md:text-xl" data-aos="fade-up" data-aos-delay="120">
 					Aspiring software engineer &amp; security enthusiast.
 				</p>
-				<div class="mt-8 flex flex-wrap gap-4 justify-center" data-aos="fade-up" data-aos-delay="180">
-					<a
-						href="#projects"
-						class="px-6 py-3 rounded-md bg-cyan-600 hover:bg-cyan-500 active:bg-cyan-700 text-white text-sm font-semibold shadow-lg shadow-cyan-600/30 transition-colors"
-						>View Projects</a
-					>
-					<a
-						href="#about"
-						class="px-6 py-3 rounded-md border border-cyan-500/40 text-cyan-300 hover:bg-cyan-500/10 text-sm font-semibold transition-colors"
-						>About Me</a
-					>
-				</div>
+
 				<a
 					href="#about"
-					class="absolute bottom-6 left-1/2 -translate-x-1/2 text-cyan-400 hover:text-cyan-200 text-xs tracking-wider flex flex-col items-center gap-1"
+					class="absolute bottom-6 left-1/2 flex -translate-x-1/2 flex-col items-center gap-1 text-xs tracking-wider text-cyan-400 hover:text-cyan-200"
 					data-aos="fade-up"
 					data-aos-delay="260"
 				>
 					<span class="animate-pulse">SCROLL</span>
-					<span class="w-px h-10 bg-gradient-to-b from-cyan-500 to-transparent block"></span>
+					<span class="block h-10 w-px bg-gradient-to-b from-cyan-500 to-transparent"></span>
 				</a>
 			</div>
 
 			<nav
 				id="mainNav"
-				class="hidden md:flex fixed top-0 left-0 right-0 z-50 items-center justify-between px-8 py-4 bg-transparent opacity-0 -translate-y-4 pointer-events-none transition-all duration-500"
+				class="pointer-events-none fixed top-0 right-0 left-0 z-50 hidden -translate-y-4 items-center justify-between bg-transparent px-8 py-4 opacity-0 transition-all duration-500 md:flex"
 				aria-label="Main navigation"
 				style="display: none"
 			>
-				<a href="#home" class="text-2xl font-extrabold tracking-wide text-white hover:text-cyan-400 transition-colors">
-					Zaenalos
-				</a>
+				<a href="#home" class="transition-color text-2xl font-extrabold tracking-wide text-white"> Zaenalos </a>
 
 				<div class="ml-auto flex items-center gap-8">
 					<ul class="flex items-center gap-6 text-sm font-medium">
 						<li>
 							<a
 								href="#about"
-								class="group relative inline-block text-gray-300 hover:text-white transition-colors h-5 overflow-hidden"
+								class="group relative inline-block h-5 overflow-hidden text-gray-300 transition-colors hover:text-white"
 							>
 								<span class="block transition-transform duration-300 ease-out group-hover:-translate-y-full"
 									>About</span
 								>
 								<span
-									class="block absolute left-0 top-0 translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0"
+									class="absolute top-0 left-0 block translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0"
 									>About</span
 								>
 							</a>
@@ -147,13 +134,13 @@
 						<li>
 							<a
 								href="#experiences"
-								class="group relative inline-block text-gray-300 hover:text-white transition-colors h-5 overflow-hidden"
+								class="group relative inline-block h-5 overflow-hidden text-gray-300 transition-colors hover:text-white"
 							>
 								<span class="block transition-transform duration-300 ease-out group-hover:-translate-y-full"
 									>Experiences</span
 								>
 								<span
-									class="block absolute left-0 top-0 translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0"
+									class="absolute top-0 left-0 block translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0"
 									>Experiences</span
 								>
 							</a>
@@ -161,13 +148,13 @@
 						<li>
 							<a
 								href="#projects"
-								class="group relative inline-block text-gray-300 hover:text-white transition-colors h-5 overflow-hidden"
+								class="group relative inline-block h-5 overflow-hidden text-gray-300 transition-colors hover:text-white"
 							>
 								<span class="block transition-transform duration-300 ease-out group-hover:-translate-y-full"
 									>Projects</span
 								>
 								<span
-									class="block absolute left-0 top-0 translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0"
+									class="absolute top-0 left-0 block translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0"
 									>Projects</span
 								>
 							</a>
@@ -178,24 +165,28 @@
 		</section>
 
 		<section id="about" data-aos="fade-in" data-aos-duration="200">
-			<div class="min-h-screen flex flex-col items-center justify-center text-center p-4">
-				<h1 class="text-2xl md:text-4xl font-bold mb-4" data-aos="zoom-in" data-aos-delay="300">About Me</h1>
-				<p class="text-lg md:text-xl" data-aos="zoom-in" data-aos-delay="400">
+			<div class="flex min-h-screen flex-col items-center justify-center p-4 text-center">
+				<h1 class="mb-4 text-2xl font-bold md:text-4xl" data-aos="zoom-in" data-aos-delay="300">About Me</h1>
+				<p
+					class="max-w-xs px-4 text-base leading-relaxed sm:max-w-md sm:text-lg sm:leading-relaxed md:max-w-2xl md:text-xl md:leading-loose lg:max-w-4xl"
+					data-aos="zoom-in"
+					data-aos-delay="400"
+				>
 					Hello! I am Rameses Chamian, a 4th-year Information Technology student at
-					<a href="https://sjc.phinma.edu.ph/" target="_blank" class="underline hover:text-cyan-400"
+					<a href="https://sjc.phinma.edu.ph/" target="_blank" class="underline hover:text-cyan-400 active:text-cyan-400"
 						>PHINMA Saint Jude College</a
 					>. I am an emerging IT professional with interests in software development, backend systems, and cybersecurity. My
 					current focus includes low-level programming, reverse engineering, and code obfuscation, while I also pursue web
 					development, Linux, and open-source projects as part of my continuous learning journey.
 				</p>
 
-				<div id="connections" class="flex justify-center mt-6" data-aos="zoom-in" data-aos-delay="500">
+				<div id="connections" class="mt-6 flex justify-center" data-aos="zoom-in" data-aos-delay="500">
 					<!-- Social Media Links -->
 					<a
 						href="https://www.linkedin.com/in/rameses-chamian-7b8478357/"
 						target="_blank"
 						rel="noopener noreferrer"
-						class="mx-3 p-2 bg-gray-800 rounded-full transition-transform duration-300 hover:scale-110"
+						class="mx-3 rounded-full bg-gray-800 p-2 transition-transform duration-300 hover:scale-110"
 					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -214,7 +205,7 @@
 						href="https://github.com/Zaenalos"
 						target="_blank"
 						rel="noopener noreferrer"
-						class="mx-3 p-2 bg-gray-800 rounded-full transition-transform duration-300 hover:scale-110"
+						class="mx-3 rounded-full bg-gray-800 p-2 transition-transform duration-300 hover:scale-110"
 					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -233,7 +224,7 @@
 						href="https://www.facebook.com/Zaenalos"
 						target="_blank"
 						rel="noopener noreferrer"
-						class="mx-3 p-2 bg-gray-800 rounded-full transition-transform duration-300 hover:scale-110"
+						class="mx-3 rounded-full bg-gray-800 p-2 transition-transform duration-300 hover:scale-110"
 					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -252,37 +243,41 @@
 			</div>
 		</section>
 		<section id="experiences" data-aos="fade-in" data-aos-duration="200">
-			<div class="min-h-screen flex flex-col items-center justify-center text-center p-4">
-				<h1 class="text-2xl md:text-4xl font-bold mb-4" data-aos="zoom-in" data-aos-delay="300">Experiences</h1>
+			<div class="flex min-h-screen flex-col items-center justify-center p-4 text-center">
+				<h1 class="mb-4 text-2xl font-bold md:text-4xl" data-aos="zoom-in" data-aos-delay="300">Experiences</h1>
 				<!-- Navigation Buttons -->
-				<div class="flex flex-wrap justify-center gap-4 mb-8" data-aos="fade-up" data-aos-delay="200">
+				<div class="mb-8 flex flex-wrap justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
 					<button
-						class="bg-gray-800 hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg transition-all duration-300"
+						class="rounded-lg border border-gray-600/20 bg-gray-800/10 px-4 py-2 font-medium text-white backdrop-blur-sm transition-all duration-300 hover:border-gray-500/40 hover:bg-gray-700/20"
 					>
 						Competitions
 					</button>
 				</div>
 
 				<!-- Experience Cards Container -->
-				<div class="grid grid-cols-1 gap-6 max-w-6xl">
+				<div class="grid max-w-6xl grid-cols-1 gap-6">
 					<!-- Competitions Card -->
-					<div class="bg-gray-800 rounded-lg p-6 shadow-lg" data-aos="fade-up" data-aos-delay="300">
-						<h3 class="text-xl font-bold mb-3">Competitions</h3>
-						<ul class="text-left space-y-2">
+					<div
+						class="rounded-lg border border-gray-600/20 bg-gray-800/10 p-6 backdrop-blur-sm hover:border-gray-500/40 hover:bg-gray-700/20"
+						data-aos="fade-up"
+						data-aos-delay="300"
+					>
+						<h3 class="mb-3 text-xl font-bold">Competitions</h3>
+						<ul class="space-y-2 text-left">
 							<li class="flex items-start">
-								<span class="text-green-400 mr-2">•</span>
+								<span class="mr-2 text-green-400">•</span>
 								<span>uCTF Trend Micro 2024</span>
 							</li>
 							<li class="flex items-start">
-								<span class="text-green-400 mr-2">•</span>
+								<span class="mr-2 text-green-400">•</span>
 								<span>Asia Symposium CTF 2024</span>
 							</li>
 							<li class="flex items-start">
-								<span class="text-green-400 mr-2">•</span>
+								<span class="mr-2 text-green-400">•</span>
 								<span>Nahamcon CTF 2025</span>
 							</li>
 							<li class="flex items-start">
-								<span class="text-green-400 mr-2">•</span>
+								<span class="mr-2 text-green-400">•</span>
 								<span>uCTF Trend Micro 2025</span>
 							</li>
 						</ul>
@@ -291,41 +286,58 @@
 			</div>
 		</section>
 		<section id="projects" data-aos="fade-in" data-aos-duration="200">
-			<div class="min-h-screen flex flex-col items-center justify-center text-center p-4">
-				<h1 class="text-2xl md:text-4xl font-bold mb-4" data-aos="zoom-in" data-aos-delay="300">Projects</h1>
+			<div class="flex min-h-screen flex-col items-center justify-center p-4 text-center">
+				<h1 class="mb-4 text-2xl font-bold md:text-4xl" data-aos="zoom-in" data-aos-delay="300">Projects</h1>
 				<!-- Projects Container -->
-				<div id="project-list" class="max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="400">
-					<ul class="text-left space-y-4">
-						<li class="bg-gray-800 p-4 rounded-lg hover:bg-gray-700 transition-colors">
-							<p id="zaenalos-vm" target="_blank" rel="noopener noreferrer" class="block">
-								<span class="text-xl font-semibold text-purple-400">Zaenalos VM</span> - A Lua obfuscation tool that
-								protects code by implementing virtualization.
-							</p>
+				<div id="project-list" class="mx-auto max-w-3xl" data-aos="fade-up" data-aos-delay="400">
+					<ul class="space-y-4 text-left">
+						<li
+							class="rounded-lg border border-gray-600/20 bg-gray-800/10 p-4 backdrop-blur-sm transition-colors hover:border-gray-500/40 hover:bg-gray-700/20"
+						>
+							<a href="#" id="zaenalos-vm" class="block cursor-pointer">
+								<span class="text-lg font-semibold text-purple-400 sm:text-xl md:text-xl">Zaenalos VM</span>
+								<span class="text-sm text-gray-300 sm:text-base md:text-base">
+									- A Lua obfuscation tool that protects code by implementing virtualization.</span
+								>
+							</a>
 						</li>
-						<li class="bg-gray-800 p-4 rounded-lg hover:bg-gray-700 transition-colors">
+						<li
+							class="rounded-lg border border-gray-600/20 bg-gray-800/10 p-4 backdrop-blur-sm transition-colors hover:border-gray-500/40 hover:bg-gray-700/20"
+						>
 							<a href="https://github.com/Zaenalos/Lua-Lexer" target="_blank" rel="noopener noreferrer" class="block">
-								<span class="text-xl font-semibold text-blue-400">Lua Lexer</span> - A custom-built lexical analyzer
-								for Lua written in native Lua, designed for parsing and tokenizing Lua source code.
+								<span class="text-lg font-semibold text-blue-400 sm:text-xl md:text-xl">Lua Lexer</span>
+								<span class="text-sm text-gray-300 sm:text-base md:text-base">
+									- A custom-built lexical analyzer for Lua written in native Lua, designed for parsing and
+									tokenizing Lua source code.</span
+								>
 							</a>
 						</li>
-						<li class="bg-gray-800 p-4 rounded-lg hover:bg-gray-700 transition-colors">
+						<li
+							class="rounded-lg border border-gray-600/20 bg-gray-800/10 p-4 backdrop-blur-sm transition-colors hover:border-gray-500/40 hover:bg-gray-700/20"
+						>
 							<a href="https://github.com/Zaenalos/Zen" target="_blank" rel="noopener noreferrer" class="block">
-								<span class="text-xl font-semibold text-green-400">Zen</span> - A reverse engineering project that
-								analyzes and modifies the popular 2D sandbox game, demonstrating practical application of binary
-								analysis skills.
+								<span class="text-lg font-semibold text-green-400 sm:text-xl md:text-xl">Zen</span>
+								<span class="text-sm text-gray-300 sm:text-base md:text-base">
+									- A reverse engineering project that analyzes and modifies the popular 2D sandbox game,
+									demonstrating practical application of binary analysis skills.</span
+								>
 							</a>
 						</li>
-						<li class="bg-gray-800 p-4 rounded-lg hover:bg-gray-700 transition-colors">
+						<li
+							class="rounded-lg border border-gray-600/20 bg-gray-800/10 p-4 backdrop-blur-sm transition-colors hover:border-gray-500/40 hover:bg-gray-700/20"
+						>
 							<a
 								href="https://github.com/Zaenalos/PH-Geolocation"
 								target="_blank"
 								rel="noopener noreferrer"
 								class="block"
 							>
-								<span class="text-xl font-semibold text-yellow-400">PH-Geolocation</span> - A simple JavaScript library
-								with an API interface providing detailed geolocation data for the Philippines, including regions,
-								provinces, cities, municipalities, and barangays. Structured with clean JSON formatting for seamless
-								integration.
+								<span class="text-lg font-semibold text-yellow-400 sm:text-xl md:text-xl">PH-Geolocation</span>
+								<span class="text-sm text-gray-300 sm:text-base md:text-base">
+									- A simple JavaScript library with an API interface providing detailed geolocation data for the
+									Philippines, including regions, provinces, cities, municipalities, and barangays. Structured with
+									clean JSON formatting for seamless integration.</span
+								>
 							</a>
 						</li>
 					</ul>
@@ -334,7 +346,7 @@
 							href="https://github.com/Zaenalos?tab=repositories"
 							target="_blank"
 							rel="noopener noreferrer"
-							class="inline-block text-sm font-medium text-gray-400 hover:text-white transition-colors underline underline-offset-4"
+							class="inline-block text-sm font-medium text-gray-400 underline underline-offset-4 transition-colors hover:text-white"
 						>
 							View more on GitHub →
 						</a>
@@ -342,9 +354,9 @@
 				</div>
 			</div>
 		</section>
-		<footer class="py-8 px-4">
+		<footer class="px-4 py-8">
 			<div class="container mx-auto max-w-6xl">
-				<div class="flex flex-col md:flex-row justify-between items-center">
+				<div class="flex flex-col items-center justify-between md:flex-row">
 					<div class="mb-4 md:mb-0">
 						<p class="text-lg font-semibold">Zaenalos</p>
 						<p class="text-sm text-gray-400">Aspiring software engineer &amp; security enthusiast.</p>
@@ -354,21 +366,21 @@
 							href="https://github.com/Zaenalos"
 							target="_blank"
 							rel="noopener noreferrer"
-							class="text-gray-400 hover:text-white transition-colors"
+							class="text-gray-400 transition-colors hover:text-white"
 							>GitHub</a
 						>
 						<a
 							href="https://www.linkedin.com/in/rameses-chamian-7b8478357/"
 							target="_blank"
 							rel="noopener noreferrer"
-							class="text-gray-400 hover:text-white transition-colors"
+							class="text-gray-400 transition-colors hover:text-white"
 							>LinkedIn</a
 						>
 						<a
 							href="https://www.facebook.com/Zaenalos"
 							target="_blank"
 							rel="noopener noreferrer"
-							class="text-gray-400 hover:text-white transition-colors"
+							class="text-gray-400 transition-colors hover:text-white"
 							>Facebook</a
 						>
 					</div>
