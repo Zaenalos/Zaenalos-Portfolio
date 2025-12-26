@@ -321,4 +321,153 @@ document.addEventListener("DOMContentLoaded", () => {
 		camera.updateProjectionMatrix();
 		renderer.setSize(window.innerWidth, window.innerHeight);
 	});
+
+	// --- Dynamic rendering for Competitions and Timeline ---
+	const COMPETITIONS_LIMIT = 3;
+
+	const competitionsListEl = document.getElementById("competitions-list");
+	const competitionsControlsEl = document.getElementById("competitions-controls");
+
+	const timelineListEl = document.getElementById("timeline-list");
+	const timelineControlsEl = document.getElementById("timeline-controls");
+
+	const fetchJSON = (path) =>
+		fetch(path).then((r) => {
+			if (!r.ok) throw new Error(`Failed to fetch ${path}`);
+			return r.json();
+		});
+
+	// Render helper for competitions
+	const renderCompetitions = (items) => {
+		competitionsListEl.innerHTML = "";
+
+		const toShow = items.slice(0, COMPETITIONS_LIMIT);
+		toShow.forEach((c) => {
+			const li = document.createElement("li");
+			li.className = "comp-item";
+			li.innerHTML = `
+				<div class="title-wrap relative pl-6 md:pl-8">
+					<span class="absolute left-0 top-1/2 -translate-y-1/2 shrink-0 h-3 w-3 rounded-full border-2 border-gray-800 bg-green-400 comp-dot"></span>
+					<span class="flex-1 block">${c.name} <span class="text-sm text-gray-400">— ${c.year}</span></span>
+				</div>
+			`;
+			competitionsListEl.appendChild(li);
+		});
+
+		// Controls
+		competitionsControlsEl.innerHTML = "";
+		if (items.length > COMPETITIONS_LIMIT) {
+			const btn = document.createElement("button");
+			btn.className = "text-sm font-medium text-cyan-300 hover:text-cyan-200 underline underline-offset-4";
+			btn.textContent = "See more";
+			btn.addEventListener("click", () => {
+				const expanded = btn.dataset.expanded === "true";
+				if (!expanded) {
+					// show all
+					competitionsListEl.innerHTML = "";
+					items.forEach((c) => {
+						const li = document.createElement("li");
+						li.className = "comp-item";
+						li.innerHTML = `
+							<div class="title-wrap relative pl-6 md:pl-8">
+								<span class="absolute left-0 top-1/2 -translate-y-1/2 shrink-0 h-3 w-3 rounded-full border-2 border-gray-800 bg-green-400 comp-dot"></span>
+								<span class="flex-1 block">${c.name} <span class="text-sm text-gray-400">— ${c.year}</span></span>
+							</div>
+						`;
+						competitionsListEl.appendChild(li);
+					});
+					btn.textContent = "See less";
+					btn.dataset.expanded = "true";
+				} else {
+					// collapse
+					renderCompetitions(items);
+				}
+			});
+			competitionsControlsEl.appendChild(btn);
+		}
+	};
+
+	// Render helper for timeline
+	const renderTimeline = (items) => {
+		timelineListEl.innerHTML = "";
+
+		const toShow = items.slice(0, COMPETITIONS_LIMIT);
+		toShow.forEach((t, idx) => {
+			const item = document.createElement("div");
+			item.className = "exp-item mb-4 flex items-center gap-4 transition-colors rounded-md hover:bg-gray-800/10";
+			item.innerHTML = `
+				<div class="flex-1">
+					<div class="exp-head flex flex-col md:flex-row md:justify-between md:items-center gap-2 w-full">
+						<div class="title-wrap relative flex-1 pl-6 md:pl-8">
+							<h4 class="font-semibold">${t.title}</h4>
+							<div class="absolute left-0 top-1/2 -translate-y-1/2 shrink-0 h-3 w-3 rounded-full border-2 border-gray-800 bg-cyan-400 timeline-dot"></div>
+						</div>
+						<span class="text-sm text-cyan-300 md:ml-4">${t.date}</span>
+					</div>
+					<div class="exp-body mt-2 text-sm text-gray-400">${t.description}</div>
+				</div>
+			`;
+			// add click toggle for this dynamic item
+			const head = item.querySelector(".exp-head");
+			head.style.cursor = "pointer";
+			// also make the whole item show pointer on hover for clarity
+			item.style.cursor = "pointer";
+			head.addEventListener("click", () => {
+				item.classList.toggle("expanded");
+			});
+
+			timelineListEl.appendChild(item);
+		});
+
+		timelineControlsEl.innerHTML = "";
+		if (items.length > COMPETITIONS_LIMIT) {
+			const btn = document.createElement("button");
+			btn.className = "text-sm font-medium text-cyan-300 hover:text-cyan-200 underline underline-offset-4";
+			btn.textContent = "See more";
+			btn.addEventListener("click", () => {
+				const expanded = btn.dataset.expanded === "true";
+				if (!expanded) {
+					timelineListEl.innerHTML = "";
+					items.forEach((t) => {
+						const item = document.createElement("div");
+						item.className = "exp-item mb-4 flex items-center gap-4 transition-colors rounded-md hover:bg-gray-800/10";
+						item.innerHTML = `
+							<div class="flex-1">
+								<div class="exp-head flex flex-col md:flex-row md:justify-between md:items-center gap-2 w-full">
+									<div class="title-wrap relative flex-1 pl-6 md:pl-8">
+										<h4 class="font-semibold">${t.title}</h4>
+										<div class="absolute left-0 top-1/2 -translate-y-1/2 shrink-0 h-3 w-3 rounded-full border-2 border-gray-800 bg-cyan-400 timeline-dot"></div>
+									</div>
+									<span class="text-sm text-cyan-300 md:ml-4">${t.date}</span>
+								</div>
+								<div class="exp-body mt-2 text-sm text-gray-400">${t.description}</div>
+							</div>
+						`;
+						const head = item.querySelector(".exp-head");
+						head.style.cursor = "pointer";
+						item.style.cursor = "pointer";
+						head.addEventListener("click", () => {
+							item.classList.toggle("expanded");
+						});
+						timelineListEl.appendChild(item);
+					});
+					btn.textContent = "See less";
+					btn.dataset.expanded = "true";
+				} else {
+					renderTimeline(items);
+				}
+			});
+			timelineControlsEl.appendChild(btn);
+		}
+	};
+
+	// Fetch both JSON files and render
+	Promise.all([fetchJSON("./data/competitions.json"), fetchJSON("./data/timeline.json")])
+		.then(([competitions, timeline]) => {
+			renderCompetitions(competitions);
+			renderTimeline(timeline);
+		})
+		.catch((err) => {
+			console.error("Failed to load experience data", err);
+		});
 });
