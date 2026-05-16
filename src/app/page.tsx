@@ -1,3 +1,14 @@
+import { Badge } from "@/components/ui/badge";
+import { buttonVariants } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 import { PortfolioClient } from "./portfolio-client";
 
 const schema = {
@@ -31,94 +42,152 @@ const schemaJson = JSON.stringify(schema);
 export default function Home() {
   return (
     <>
-      <main>
-        <section id="home" className="relative">
+      <main className="relative">
+        <section id="home" className="relative overflow-hidden">
           <div
             id="home-hero"
-            className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-8 text-center"
+            className="relative flex min-h-screen items-center"
           >
             <div className="pointer-events-none absolute inset-0">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(0,255,255,0.12),transparent_60%)]" />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(0,140,255,0.15),transparent_65%)]" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(34,211,238,0.12),transparent_60%)]" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(59,130,246,0.16),transparent_65%)]" />
             </div>
 
-            <h1
-              className="mb-6 bg-linear-to-r from-cyan-300 to-blue-600 bg-clip-text text-4xl font-extrabold tracking-tight text-transparent md:text-6xl"
-              data-aos="zoom-in"
-            >
-              Zaenalos
-            </h1>
-            <p
-              className="max-w-2xl text-lg leading-relaxed text-gray-300 md:text-xl"
-              data-aos="fade-up"
-              data-aos-delay="120"
-            >
-              Aspiring software engineer &amp; security enthusiast.
-            </p>
+            <div className="relative mx-auto grid w-full max-w-6xl gap-10 px-6 pb-20 pt-28 md:grid-cols-[1.15fr_0.85fr] md:items-center">
+              <div className="space-y-6">
+                <Badge
+                  variant="secondary"
+                  className="bg-muted/60 text-muted-foreground"
+                >
+                  Software Developer &amp; IT Student
+                </Badge>
+                <h1
+                  className="text-4xl font-semibold tracking-tight text-foreground md:text-6xl"
+                  data-aos="zoom-in"
+                >
+                  Zaenalos
+                </h1>
+                <p
+                  className="max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg"
+                  data-aos="fade-up"
+                  data-aos-delay="120"
+                >
+                  Aspiring software engineer and security enthusiast focused on
+                  backend systems, cybersecurity, and reverse engineering.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="outline">Backend Systems</Badge>
+                  <Badge variant="outline">Cybersecurity</Badge>
+                  <Badge variant="outline">Reverse Engineering</Badge>
+                  <Badge variant="outline">Open Source</Badge>
+                </div>
+                <div className="flex flex-wrap gap-3">
+                  <a
+                    href="#projects"
+                    className={buttonVariants({ size: "lg" })}
+                  >
+                    View Projects
+                  </a>
+                  <a
+                    href="#about"
+                    className={buttonVariants({
+                      size: "lg",
+                      variant: "outline",
+                    })}
+                  >
+                    About Me
+                  </a>
+                </div>
+              </div>
+
+              <div className="space-y-6">
+                <Card className="bg-card/80 shadow-[var(--shadow-soft)] backdrop-blur transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_0_1px_var(--border-strong),0_24px_50px_rgba(2,8,23,0.55)]">
+                  <CardHeader>
+                    <CardTitle className="text-base text-foreground">
+                      Focus Areas
+                    </CardTitle>
+                    <CardDescription>
+                      Specialized in system-focused engineering disciplines.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="grid gap-3 text-sm text-muted-foreground">
+                    <div className="flex items-center justify-between">
+                      <span>Backend Systems</span>
+                      <Badge variant="secondary">Active</Badge>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span>Cybersecurity</span>
+                      <Badge variant="secondary">Active</Badge>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span>Reverse Engineering</span>
+                      <Badge variant="secondary">Active</Badge>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-card/70 shadow-[var(--shadow-soft)] backdrop-blur transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_0_1px_var(--border-strong),0_24px_50px_rgba(2,8,23,0.55)]">
+                  <CardHeader>
+                    <CardTitle className="text-base text-foreground">
+                      Currently
+                    </CardTitle>
+                    <CardDescription>
+                      4th-year Information Technology student at PHINMA Saint
+                      Jude College.
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+              </div>
+            </div>
 
             <a
               href="#about"
-              className="absolute bottom-6 left-1/2 flex -translate-x-1/2 flex-col items-center gap-1 text-xs tracking-wider text-cyan-400 hover:text-cyan-200"
+              className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 text-xs tracking-[0.3em] text-muted-foreground/80"
               data-aos="fade-up"
               data-aos-delay="260"
             >
-              <span className="animate-pulse">SCROLL</span>
-              <span className="block h-10 w-px bg-linear-to-b from-cyan-500 to-transparent" />
+              <span className="uppercase">Scroll</span>
+              <span className="block h-12 w-px bg-linear-to-b from-cyan-400 to-transparent" />
             </a>
           </div>
 
           <nav
             id="mainNav"
-            className="pointer-events-none fixed top-0 right-0 left-0 z-50 hidden -translate-y-4 items-center justify-between bg-transparent px-8 py-4 opacity-0 transition-all duration-500 md:flex"
+            className="pointer-events-none fixed top-0 right-0 left-0 z-50 hidden -translate-y-4 items-center justify-between border-b border-border/60 bg-background/80 px-6 py-4 opacity-0 backdrop-blur transition-all duration-500 md:flex"
             aria-label="Main navigation"
             style={{ display: "none" }}
           >
             <a
               href="#home"
-              className="transition-color text-2xl font-extrabold tracking-wide text-white"
+              className="text-lg font-semibold tracking-wide text-foreground"
             >
               Zaenalos
             </a>
 
             <div className="ml-auto flex items-center gap-8">
-              <ul className="flex items-center gap-6 text-sm font-medium">
+              <ul className="flex items-center gap-6 text-sm font-medium text-muted-foreground">
                 <li>
                   <a
                     href="#about"
-                    className="group relative inline-block h-5 overflow-hidden text-gray-300 transition-colors hover:text-white"
+                    className="transition-colors hover:text-foreground"
                   >
-                    <span className="block transition-transform duration-300 ease-out group-hover:-translate-y-full">
-                      About
-                    </span>
-                    <span className="absolute top-0 left-0 block translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0">
-                      About
-                    </span>
+                    About
                   </a>
                 </li>
                 <li>
                   <a
                     href="#experiences"
-                    className="group relative inline-block h-5 overflow-hidden text-gray-300 transition-colors hover:text-white"
+                    className="transition-colors hover:text-foreground"
                   >
-                    <span className="block transition-transform duration-300 ease-out group-hover:-translate-y-full">
-                      Experiences
-                    </span>
-                    <span className="absolute top-0 left-0 block translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0">
-                      Experiences
-                    </span>
+                    Experiences
                   </a>
                 </li>
                 <li>
                   <a
                     href="#projects"
-                    className="group relative inline-block h-5 overflow-hidden text-gray-300 transition-colors hover:text-white"
+                    className="transition-colors hover:text-foreground"
                   >
-                    <span className="block transition-transform duration-300 ease-out group-hover:-translate-y-full">
-                      Projects
-                    </span>
-                    <span className="absolute top-0 left-0 block translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0">
-                      Projects
-                    </span>
+                    Projects
                   </a>
                 </li>
               </ul>
@@ -126,251 +195,311 @@ export default function Home() {
           </nav>
         </section>
 
-        <section id="about" data-aos="fade-in" data-aos-duration="200">
-          <div className="flex min-h-screen flex-col items-center justify-center p-4 text-center">
-            <h1
-              className="mb-4 text-2xl font-bold md:text-4xl"
-              data-aos="zoom-in"
-              data-aos-delay="300"
-            >
-              About Me
-            </h1>
-            <p
-              className="max-w-xs px-4 text-base leading-relaxed sm:max-w-md sm:text-lg sm:leading-relaxed md:max-w-2xl md:text-xl md:leading-loose lg:max-w-4xl"
-              data-aos="zoom-in"
-              data-aos-delay="400"
-            >
-              Hello! I am Rameses Chamian, a 4th-year Information Technology
-              student at{" "}
-              <a
-                href="https://sjc.phinma.edu.ph/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline hover:text-cyan-400 active:text-cyan-400"
-              >
-                PHINMA Saint Jude College
-              </a>
-              . I am an emerging IT professional with interests in software
-              development, backend systems, and cybersecurity. My current focus
-              includes low-level programming, reverse engineering, and code
-              obfuscation, while I also pursue web development, Linux, and
-              open-source projects as part of my continuous learning journey.
-            </p>
+        <section
+          id="about"
+          className="py-[var(--section-gap)]"
+          data-aos="fade-in"
+          data-aos-duration="200"
+        >
+          <div className="mx-auto w-full max-w-6xl px-6">
+            <div className="mb-8 flex items-center justify-between">
+              <div>
+                <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+                  About
+                </p>
+                <h2 className="mt-3 text-3xl font-semibold text-foreground">
+                  Building secure, reliable systems
+                </h2>
+              </div>
+            </div>
 
-            <div
-              id="connections"
-              className="mt-6 flex justify-center"
-              data-aos="zoom-in"
-              data-aos-delay="500"
-            >
-              <a
-                href="https://www.linkedin.com/in/rameses-chamian/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mx-3 rounded-full bg-gray-800 p-2 transition-transform duration-300 hover:scale-110"
+            <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+              <Card className="bg-card/80 shadow-[var(--shadow-soft)] backdrop-blur transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_0_1px_var(--border-strong),0_24px_50px_rgba(2,8,23,0.55)]">
+                <CardHeader>
+                  <CardTitle className="text-base text-foreground">
+                    About Me
+                  </CardTitle>
+                  <CardDescription>
+                    A focused builder with a systems-first mindset.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="text-sm leading-relaxed text-muted-foreground">
+                  Hello! I am Rameses Chamian, a 4th-year Information Technology
+                  student at{" "}
+                  <a
+                    href="https://sjc.phinma.edu.ph/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline decoration-muted-foreground/40 underline-offset-4 hover:text-foreground"
+                  >
+                    PHINMA Saint Jude College
+                  </a>
+                  . I am an emerging IT professional with interests in software
+                  development, backend systems, and cybersecurity. My current
+                  focus includes low-level programming, reverse engineering, and
+                  code obfuscation, while I also pursue web development, Linux,
+                  and open-source projects as part of my continuous learning
+                  journey.
+                </CardContent>
+              </Card>
+
+              <Card
+                id="connections"
+                className="bg-card/70 shadow-[var(--shadow-soft)] backdrop-blur transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_0_1px_var(--border-strong),0_24px_50px_rgba(2,8,23,0.55)]"
               >
-                {
-                  // biome-ignore lint/performance/noImgElement: Using img for SVG icons.
-                  <img
-                    src="/svgs/linkedin.svg"
-                    alt="LinkedIn"
-                    width={24}
-                    height={24}
-                  />
-                }
-              </a>
-              <a
-                href="https://github.com/Zaenalos"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mx-3 rounded-full bg-gray-800 p-2 transition-transform duration-300 hover:scale-110"
-              >
-                {
-                  // biome-ignore lint/performance/noImgElement: Using img for SVG icons.
-                  <img
-                    src="/svgs/github.svg"
-                    alt="GitHub"
-                    width={24}
-                    height={24}
-                  />
-                }
-              </a>
-              <a
-                href="https://www.facebook.com/Zaenalos"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mx-3 rounded-full bg-gray-800 p-2 transition-transform duration-300 hover:scale-110"
-              >
-                {
-                  // biome-ignore lint/performance/noImgElement: Using img for SVG icons.
-                  <img
-                    src="/svgs/facebook.svg"
-                    alt="Facebook"
-                    width={24}
-                    height={24}
-                  />
-                }
-              </a>
+                <CardHeader>
+                  <CardTitle className="text-base text-foreground">
+                    Connect
+                  </CardTitle>
+                  <CardDescription>
+                    Find me on professional and developer platforms.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="flex flex-wrap gap-3">
+                  <a
+                    href="https://www.linkedin.com/in/rameses-chamian/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-lg border border-border/70 bg-background/60 px-3 py-2 text-sm text-muted-foreground transition hover:text-foreground"
+                  >
+                    {
+                      // biome-ignore lint/performance/noImgElement: Using img for SVG icons.
+                      <img
+                        src="/svgs/linkedin.svg"
+                        alt="LinkedIn"
+                        width={18}
+                        height={18}
+                      />
+                    }
+                    LinkedIn
+                  </a>
+                  <a
+                    href="https://github.com/Zaenalos"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-lg border border-border/70 bg-background/60 px-3 py-2 text-sm text-muted-foreground transition hover:text-foreground"
+                  >
+                    {
+                      // biome-ignore lint/performance/noImgElement: Using img for SVG icons.
+                      <img
+                        src="/svgs/github.svg"
+                        alt="GitHub"
+                        width={18}
+                        height={18}
+                      />
+                    }
+                    GitHub
+                  </a>
+                  <a
+                    href="https://www.facebook.com/Zaenalos"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-lg border border-border/70 bg-background/60 px-3 py-2 text-sm text-muted-foreground transition hover:text-foreground"
+                  >
+                    {
+                      // biome-ignore lint/performance/noImgElement: Using img for SVG icons.
+                      <img
+                        src="/svgs/facebook.svg"
+                        alt="Facebook"
+                        width={18}
+                        height={18}
+                      />
+                    }
+                    Facebook
+                  </a>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>
 
-        <section id="experiences" data-aos="fade-in" data-aos-duration="200">
-          <div className="flex min-h-screen flex-col items-center justify-center p-4 text-center">
-            <h1
-              className="mb-6 text-2xl font-bold md:text-4xl"
-              data-aos="zoom-in"
-              data-aos-delay="200"
-            >
-              Experiences
-            </h1>
+        <section
+          id="experiences"
+          className="py-[var(--section-gap)]"
+          data-aos="fade-in"
+          data-aos-duration="200"
+        >
+          <div className="mx-auto w-full max-w-6xl px-6">
+            <div className="mb-8">
+              <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+                Experience
+              </p>
+              <h2 className="mt-3 text-3xl font-semibold text-foreground">
+                Real-world exposure and competition work
+              </h2>
+            </div>
 
-            <div
-              className="mx-auto w-full max-w-6xl"
-              data-aos="fade-up"
-              data-aos-delay="300"
-            >
-              <div className="grid grid-cols-1 items-stretch gap-8">
-                <div className="px-4 py-3 md:px-6 md:py-4">
-                  <h3 className="mb-4 text-xl font-bold">Competitions</h3>
-                  <p className="mb-4 text-sm text-gray-400">
+            <div className="grid gap-6 lg:grid-cols-2">
+              <Card className="bg-card/80 shadow-[var(--shadow-soft)] backdrop-blur transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_0_1px_var(--border-strong),0_24px_50px_rgba(2,8,23,0.55)]">
+                <CardHeader>
+                  <CardTitle>Competitions</CardTitle>
+                  <CardDescription>
                     Selected events and competitions.
-                  </p>
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
                   <ul
                     id="competitions-list"
                     className="exp-list space-y-3 text-left"
                   />
-                  <div id="competitions-controls" className="mt-3" />
-                </div>
+                </CardContent>
+                <CardFooter className="border-border/60 bg-background/50">
+                  <div id="competitions-controls" className="w-full" />
+                </CardFooter>
+              </Card>
 
-                <div className="px-4 py-3 md:px-6 md:py-4">
-                  <h3 className="mb-4 text-xl font-bold">Timeline</h3>
-                  <p className="mb-4 text-sm text-gray-400">
+              <Card className="bg-card/80 shadow-[var(--shadow-soft)] backdrop-blur transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_0_1px_var(--border-strong),0_24px_50px_rgba(2,8,23,0.55)]">
+                <CardHeader>
+                  <CardTitle>Timeline</CardTitle>
+                  <CardDescription>
                     Professional roles, internships, and notable contributions.
-                  </p>
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
                   <div id="timeline-list" className="text-left" />
-                  <div id="timeline-controls" className="mt-3" />
-                </div>
-              </div>
+                </CardContent>
+                <CardFooter className="border-border/60 bg-background/50">
+                  <div id="timeline-controls" className="w-full" />
+                </CardFooter>
+              </Card>
             </div>
           </div>
         </section>
 
-        <section id="projects" data-aos="fade-in" data-aos-duration="200">
-          <div className="flex min-h-screen flex-col items-center justify-center p-4 text-center">
-            <h1
-              className="mb-4 text-2xl font-bold md:text-4xl"
-              data-aos="zoom-in"
-              data-aos-delay="300"
-            >
-              Projects
-            </h1>
-            <div
-              id="project-list"
-              className="mx-auto max-w-3xl"
-              data-aos="fade-up"
-              data-aos-delay="400"
-            >
-              <ul className="space-y-4 text-left">
-                <li className="rounded-lg border border-gray-600/20 bg-gray-800/10 p-4 backdrop-blur-sm transition-colors hover:border-gray-500/40 hover:bg-gray-700/20">
+        <section
+          id="projects"
+          className="py-[var(--section-gap)]"
+          data-aos="fade-in"
+          data-aos-duration="200"
+        >
+          <div className="mx-auto w-full max-w-6xl px-6">
+            <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+              <div>
+                <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+                  Projects
+                </p>
+                <h2 className="mt-3 text-3xl font-semibold text-foreground">
+                  Selected work and experiments
+                </h2>
+              </div>
+              <a
+                href="https://github.com/Zaenalos?tab=repositories"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={buttonVariants({ variant: "outline", size: "sm" })}
+              >
+                View all on GitHub
+              </a>
+            </div>
+
+            <div className="grid gap-5 md:grid-cols-2">
+              <Card className="bg-card/70 shadow-[var(--shadow-soft)] backdrop-blur transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_0_1px_var(--border-strong),0_24px_50px_rgba(2,8,23,0.55)]">
+                <CardHeader>
+                  <CardTitle className="text-purple-300">Zaenalos VM</CardTitle>
+                  <CardDescription>
+                    A Lua obfuscation tool that protects code by implementing
+                    virtualization.
+                  </CardDescription>
+                </CardHeader>
+                <CardFooter className="justify-between border-border/60 bg-background/50">
+                  <Badge variant="outline">Private</Badge>
                   <a
                     href="#projects"
                     id="zaenalos-vm"
-                    className="block cursor-pointer"
+                    className={buttonVariants({ variant: "ghost", size: "sm" })}
                   >
-                    <span className="text-lg font-semibold text-purple-400 sm:text-xl md:text-xl">
-                      Zaenalos VM
-                    </span>
-                    <span className="text-sm text-gray-300 sm:text-base md:text-base">
-                      - A Lua obfuscation tool that protects code by
-                      implementing virtualization.
-                    </span>
+                    Learn more
                   </a>
-                </li>
-                <li className="rounded-lg border border-gray-600/20 bg-gray-800/10 p-4 backdrop-blur-sm transition-colors hover:border-gray-500/40 hover:bg-gray-700/20">
+                </CardFooter>
+              </Card>
+
+              <Card className="bg-card/70 shadow-[var(--shadow-soft)] backdrop-blur transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_0_1px_var(--border-strong),0_24px_50px_rgba(2,8,23,0.55)]">
+                <CardHeader>
+                  <CardTitle className="text-blue-300">Lua Lexer</CardTitle>
+                  <CardDescription>
+                    A custom-built lexical analyzer for Lua written in native
+                    Lua, designed for parsing and tokenizing Lua source code.
+                  </CardDescription>
+                </CardHeader>
+                <CardFooter className="justify-between border-border/60 bg-background/50">
+                  <Badge variant="outline">Open Source</Badge>
                   <a
                     href="https://github.com/Zaenalos/Lua-Lexer"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block"
+                    className={buttonVariants({ variant: "ghost", size: "sm" })}
                   >
-                    <span className="text-lg font-semibold text-blue-400 sm:text-xl md:text-xl">
-                      Lua Lexer
-                    </span>
-                    <span className="text-sm text-gray-300 sm:text-base md:text-base">
-                      - A custom-built lexical analyzer for Lua written in
-                      native Lua, designed for parsing and tokenizing Lua source
-                      code.
-                    </span>
+                    View repo
                   </a>
-                </li>
-                <li className="rounded-lg border border-gray-600/20 bg-gray-800/10 p-4 backdrop-blur-sm transition-colors hover:border-gray-500/40 hover:bg-gray-700/20">
+                </CardFooter>
+              </Card>
+
+              <Card className="bg-card/70 shadow-[var(--shadow-soft)] backdrop-blur transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_0_1px_var(--border-strong),0_24px_50px_rgba(2,8,23,0.55)]">
+                <CardHeader>
+                  <CardTitle className="text-emerald-300">Zen</CardTitle>
+                  <CardDescription>
+                    A reverse engineering project that analyzes and modifies the
+                    popular 2D sandbox game, demonstrating practical application
+                    of binary analysis skills.
+                  </CardDescription>
+                </CardHeader>
+                <CardFooter className="justify-between border-border/60 bg-background/50">
+                  <Badge variant="outline">Reverse Engineering</Badge>
                   <a
                     href="https://github.com/Zaenalos/Zen"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block"
+                    className={buttonVariants({ variant: "ghost", size: "sm" })}
                   >
-                    <span className="text-lg font-semibold text-green-400 sm:text-xl md:text-xl">
-                      Zen
-                    </span>
-                    <span className="text-sm text-gray-300 sm:text-base md:text-base">
-                      - A reverse engineering project that analyzes and modifies
-                      the popular 2D sandbox game, demonstrating practical
-                      application of binary analysis skills.
-                    </span>
+                    View repo
                   </a>
-                </li>
-                <li className="rounded-lg border border-gray-600/20 bg-gray-800/10 p-4 backdrop-blur-sm transition-colors hover:border-gray-500/40 hover:bg-gray-700/20">
+                </CardFooter>
+              </Card>
+
+              <Card className="bg-card/70 shadow-[var(--shadow-soft)] backdrop-blur transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_0_1px_var(--border-strong),0_24px_50px_rgba(2,8,23,0.55)]">
+                <CardHeader>
+                  <CardTitle className="text-yellow-300">
+                    PH-Geolocation
+                  </CardTitle>
+                  <CardDescription>
+                    A JavaScript library with an API interface providing
+                    detailed geolocation data for the Philippines, including
+                    regions, provinces, cities, municipalities, and barangays.
+                  </CardDescription>
+                </CardHeader>
+                <CardFooter className="justify-between border-border/60 bg-background/50">
+                  <Badge variant="outline">JavaScript</Badge>
                   <a
                     href="https://github.com/Zaenalos/PH-Geolocation"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block"
+                    className={buttonVariants({ variant: "ghost", size: "sm" })}
                   >
-                    <span className="text-lg font-semibold text-yellow-400 sm:text-xl md:text-xl">
-                      PH-Geolocation
-                    </span>
-                    <span className="text-sm text-gray-300 sm:text-base md:text-base">
-                      - A simple JavaScript library with an API interface
-                      providing detailed geolocation data for the Philippines,
-                      including regions, provinces, cities, municipalities, and
-                      barangays. Structured with clean JSON formatting for
-                      seamless integration.
-                    </span>
+                    View repo
                   </a>
-                </li>
-              </ul>
-              <div className="mt-6 text-center">
-                <a
-                  href="https://github.com/Zaenalos?tab=repositories"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block text-sm font-medium text-gray-400 underline underline-offset-4 transition-colors hover:text-white"
-                >
-                  View more on GitHub &rarr;
-                </a>
-              </div>
+                </CardFooter>
+              </Card>
             </div>
           </div>
         </section>
       </main>
 
-      <footer className="px-4 py-8">
-        <div className="container mx-auto max-w-6xl">
-          <div className="flex flex-col items-center justify-between md:flex-row">
-            <div className="mb-4 md:mb-0">
-              <p className="text-lg font-semibold">Zaenalos</p>
-              <p className="text-sm text-gray-400">
+      <footer className="py-10">
+        <div className="mx-auto max-w-6xl px-6">
+          <Separator className="mb-6" />
+          <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
+            <div>
+              <p className="text-lg font-semibold text-foreground">Zaenalos</p>
+              <p className="text-sm text-muted-foreground">
                 Aspiring software engineer &amp; security enthusiast.
               </p>
             </div>
-            <div className="flex space-x-4">
+            <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
               <a
                 href="https://github.com/Zaenalos"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 transition-colors hover:text-white"
+                className="transition-colors hover:text-foreground"
               >
                 GitHub
               </a>
@@ -378,7 +507,7 @@ export default function Home() {
                 href="https://www.linkedin.com/in/rameses-chamian/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 transition-colors hover:text-white"
+                className="transition-colors hover:text-foreground"
               >
                 LinkedIn
               </a>
@@ -386,15 +515,15 @@ export default function Home() {
                 href="https://www.facebook.com/Zaenalos"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 transition-colors hover:text-white"
+                className="transition-colors hover:text-foreground"
               >
                 Facebook
               </a>
             </div>
           </div>
-          <div className="mt-6 border-t border-gray-800 pt-6 text-center text-sm text-gray-500">
-            <p>&copy; 2025 Zaenalos. All rights reserved.</p>
-          </div>
+          <p className="mt-6 text-center text-xs text-muted-foreground">
+            &copy; 2025 Zaenalos. All rights reserved.
+          </p>
         </div>
       </footer>
 

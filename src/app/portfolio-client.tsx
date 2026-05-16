@@ -450,42 +450,42 @@ export function PortfolioClient() {
     const renderCompetitions = (items: CompetitionItem[]) => {
       competitionsListEl.innerHTML = "";
 
-      const toShow = items.slice(0, COMPETITIONS_LIMIT);
-      toShow.forEach((competition) => {
+      const createCompetitionItem = (competition: CompetitionItem) => {
         const item = document.createElement("li");
-        item.className = "comp-item";
+        item.className =
+          "flex items-center justify-between rounded-lg border border-border/60 bg-background/40 px-3 py-2 text-sm text-muted-foreground transition hover:border-border hover:text-foreground";
         item.innerHTML = `
-					<div class="title-wrap relative pl-6 md:pl-8">
-						<span class="absolute left-0 top-1/2 -translate-y-1/2 shrink-0 h-3 w-3 rounded-full border-2 border-gray-800 bg-green-400 comp-dot"></span>
-						<span class="flex-1 block">${competition.name} <span class="text-sm text-gray-400">— ${competition.year}</span></span>
-					</div>
-				`;
-        competitionsListEl.appendChild(item);
-      });
+          <div class="flex items-center gap-3">
+            <span class="h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(16,185,129,0.6)]"></span>
+            <span class="text-foreground">${competition.name}</span>
+          </div>
+          <span class="text-xs text-muted-foreground">${competition.year}</span>
+        `;
+        return item;
+      };
+
+      const toShow = items.slice(0, COMPETITIONS_LIMIT);
+      for (const competition of toShow) {
+        competitionsListEl.appendChild(createCompetitionItem(competition));
+      }
 
       competitionsControlsEl.innerHTML = "";
 
       if (items.length > COMPETITIONS_LIMIT) {
         const button = document.createElement("button");
         button.className =
-          "text-sm font-medium text-cyan-300 hover:text-cyan-200 underline underline-offset-4";
+          "text-sm font-medium text-muted-foreground underline underline-offset-4 transition hover:text-foreground";
         button.textContent = "See more";
 
         button.addEventListener("click", () => {
           const expanded = button.dataset.expanded === "true";
           if (!expanded) {
             competitionsListEl.innerHTML = "";
-            items.forEach((competition) => {
-              const item = document.createElement("li");
-              item.className = "comp-item";
-              item.innerHTML = `
-								<div class="title-wrap relative pl-6 md:pl-8">
-									<span class="absolute left-0 top-1/2 -translate-y-1/2 shrink-0 h-3 w-3 rounded-full border-2 border-gray-800 bg-green-400 comp-dot"></span>
-									<span class="flex-1 block">${competition.name} <span class="text-sm text-gray-400">— ${competition.year}</span></span>
-								</div>
-							`;
-              competitionsListEl.appendChild(item);
-            });
+            for (const competition of items) {
+              competitionsListEl.appendChild(
+                createCompetitionItem(competition),
+              );
+            }
             button.textContent = "See less";
             button.dataset.expanded = "true";
             return;
@@ -501,76 +501,57 @@ export function PortfolioClient() {
     const renderTimeline = (items: TimelineItem[]) => {
       timelineListEl.innerHTML = "";
 
-      const toShow = items.slice(0, COMPETITIONS_LIMIT);
-      toShow.forEach((timeline) => {
+      const createTimelineItem = (timeline: TimelineItem) => {
         const item = document.createElement("div");
         item.className =
-          "exp-item mb-4 flex items-center gap-4 transition-colors rounded-md hover:bg-gray-800/10";
+          "rounded-lg border border-border/60 bg-background/40 p-4 text-left text-sm text-muted-foreground transition hover:border-border";
         item.innerHTML = `
-					<div class="flex-1">
-						<div class="exp-head flex flex-col md:flex-row md:justify-between md:items-center gap-2 w-full">
-							<div class="title-wrap relative flex-1 pl-6 md:pl-8">
-								<h4 class="font-semibold">${timeline.title}</h4>
-								<div class="absolute left-0 top-1/2 -translate-y-1/2 shrink-0 h-3 w-3 rounded-full border-2 border-gray-800 bg-cyan-400 timeline-dot"></div>
-							</div>
-							<span class="text-sm text-cyan-300 md:ml-4">${timeline.date}</span>
-						</div>
-						<div class="exp-body mt-2 text-sm text-gray-400">${timeline.description}</div>
-					</div>
-				`;
+          <div class="flex flex-col gap-3">
+            <div class="exp-head flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+              <div class="flex items-center gap-3">
+                <span class="h-2.5 w-2.5 rounded-full bg-cyan-400 shadow-[0_0_12px_rgba(34,211,238,0.6)]"></span>
+                <h4 class="text-sm font-semibold text-foreground">${timeline.title}</h4>
+              </div>
+              <span class="text-xs text-muted-foreground">${timeline.date}</span>
+            </div>
+            <div class="exp-body hidden text-sm text-muted-foreground">${timeline.description}</div>
+          </div>
+        `;
 
         const head = item.querySelector<HTMLElement>(".exp-head");
-        if (head) {
+        const body = item.querySelector<HTMLElement>(".exp-body");
+        if (head && body) {
+          const toggleBody = () => {
+            const isHidden = body.classList.toggle("hidden");
+            item.setAttribute("data-expanded", (!isHidden).toString());
+          };
           head.style.cursor = "pointer";
-          item.style.cursor = "pointer";
-          head.addEventListener("click", () => {
-            item.classList.toggle("expanded");
-          });
+          head.addEventListener("click", toggleBody);
         }
 
-        timelineListEl.appendChild(item);
-      });
+        return item;
+      };
+
+      const toShow = items.slice(0, COMPETITIONS_LIMIT);
+      for (const timeline of toShow) {
+        timelineListEl.appendChild(createTimelineItem(timeline));
+      }
 
       timelineControlsEl.innerHTML = "";
 
       if (items.length > COMPETITIONS_LIMIT) {
         const button = document.createElement("button");
         button.className =
-          "text-sm font-medium text-cyan-300 hover:text-cyan-200 underline underline-offset-4";
+          "text-sm font-medium text-muted-foreground underline underline-offset-4 transition hover:text-foreground";
         button.textContent = "See more";
 
         button.addEventListener("click", () => {
           const expanded = button.dataset.expanded === "true";
           if (!expanded) {
             timelineListEl.innerHTML = "";
-            items.forEach((timeline) => {
-              const item = document.createElement("div");
-              item.className =
-                "exp-item mb-4 flex items-center gap-4 transition-colors rounded-md hover:bg-gray-800/10";
-              item.innerHTML = `
-								<div class="flex-1">
-									<div class="exp-head flex flex-col md:flex-row md:justify-between md:items-center gap-2 w-full">
-										<div class="title-wrap relative flex-1 pl-6 md:pl-8">
-											<h4 class="font-semibold">${timeline.title}</h4>
-											<div class="absolute left-0 top-1/2 -translate-y-1/2 shrink-0 h-3 w-3 rounded-full border-2 border-gray-800 bg-cyan-400 timeline-dot"></div>
-										</div>
-										<span class="text-sm text-cyan-300 md:ml-4">${timeline.date}</span>
-									</div>
-									<div class="exp-body mt-2 text-sm text-gray-400">${timeline.description}</div>
-								</div>
-							`;
-
-              const head = item.querySelector<HTMLElement>(".exp-head");
-              if (head) {
-                head.style.cursor = "pointer";
-                item.style.cursor = "pointer";
-                head.addEventListener("click", () => {
-                  item.classList.toggle("expanded");
-                });
-              }
-
-              timelineListEl.appendChild(item);
-            });
+            for (const timeline of items) {
+              timelineListEl.appendChild(createTimelineItem(timeline));
+            }
 
             button.textContent = "See less";
             button.dataset.expanded = "true";

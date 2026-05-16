@@ -2,8 +2,17 @@ import "../globals.css";
 import "aos/dist/aos.css";
 import type { ReactNode } from "react";
 import type { Metadata } from "next";
+import { JetBrains_Mono } from "next/font/google";
+import { cn } from "@/lib/utils";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+
+const jetBrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["300", "400", "500", "700"],
+  variable: "--font-sans",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://zaenalos-portfolio.vercel.app/"),
@@ -63,8 +72,8 @@ type RootLayoutProps = {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en">
-      <body className="bg-[#121212] text-white">
+    <html lang="en" className={cn(jetBrainsMono.variable, "font-sans")}>
+      <body className="min-h-screen bg-background text-foreground">
         {children}
         <SpeedInsights />
         <Analytics />
