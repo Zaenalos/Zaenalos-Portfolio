@@ -29,6 +29,7 @@
         "@types/react-dom": "^19.2.3",
         "@types/three": "^0.184.1",
         "babel-plugin-react-compiler": "1.0.0",
+        "oxlint-tailwindcss": "^0.7.1",
         "tailwindcss": "^4.3.0",
         "typescript": "^6.0.3",
       },
@@ -247,6 +248,8 @@
     "@open-draft/logger": ["@open-draft/logger@0.3.0", "", { "dependencies": { "is-node-process": "^1.2.0", "outvariant": "^1.4.0" } }, "sha512-X2g45fzhxH238HKO4xbSr7+wBS8Fvw6ixhTDuvLd5mqh6bJJCFAPwU9mPDxbcrRtfxv4u5IHCEH77BmxvXmmxQ=="],
 
     "@open-draft/until": ["@open-draft/until@2.1.0", "", {}, "sha512-U69T3ItWHvLwGg5eJ0n3I62nWuE6ilHlmz7zM0npLBRvPRd7e6NYmg54vvRtP5mZG7kZqZCFVdsTWo7BPtBujg=="],
+
+    "@oxlint/plugins": ["@oxlint/plugins@1.65.0", "", {}, "sha512-xUg0v7/+xyDZHkjCie/OW9dqRW8ItEGt2xM90ry3lOc67Ehtj2swGz3d3vfYC+gxiV7n+1fI3jeciFAKuzuHvQ=="],
 
     "@sec-ant/readable-stream": ["@sec-ant/readable-stream@0.4.1", "", {}, "sha512-831qok9r2t8AlxLko40y2ebgSDhenenCatLVeW/uBtnHPyhHOvG0C7TvfgecV+wHzIm5KUICgzmVpWS+IMEAeg=="],
 
@@ -711,6 +714,8 @@
     "ora": ["ora@8.2.0", "", { "dependencies": { "chalk": "^5.3.0", "cli-cursor": "^5.0.0", "cli-spinners": "^2.9.2", "is-interactive": "^2.0.0", "is-unicode-supported": "^2.0.0", "log-symbols": "^6.0.0", "stdin-discarder": "^0.2.2", "string-width": "^7.2.0", "strip-ansi": "^7.1.0" } }, "sha512-weP+BZ8MVNnlCm8c0Qdc1WSWq4Qn7I+9CJGm7Qali6g44e/PUzbjNqJX5NJ9ljlNMosfJvg1fKEGILklK9cwnw=="],
 
     "outvariant": ["outvariant@1.4.3", "", {}, "sha512-+Sl2UErvtsoajRDKCE5/dBz4DIvHXQQnAxtQTF04OJxY0+DyZXSo5P5Bb7XYWOh81syohlYL24hbDwxedPUJCA=="],
+
+    "oxlint-tailwindcss": ["oxlint-tailwindcss@0.7.1", "", { "dependencies": { "@tailwindcss/node": "^4.2.4", "tailwindcss": "^4.2.4" }, "peerDependencies": { "@oxlint/plugins": ">=1.43.0" } }, "sha512-l4WuZt/iKvMwggwnfsIPCNvY/GDMK9FffXiYTWfXrh+PR0WeItRwqzU5UD1iFfV5CC0bfsiYZbLFt1CJLT6t3g=="],
 
     "parent-module": ["parent-module@1.0.1", "", { "dependencies": { "callsites": "^3.0.0" } }, "sha512-GQ2EWRpQV8/o+Aw8YqtfZZPfNRWZYkbidE9k5rpl/hC3vtHHBfGm2Ifi6qWV+coDGkrUKZAxE3Lot5kcsRlh+g=="],
 

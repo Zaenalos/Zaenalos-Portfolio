@@ -164,3 +164,125 @@ body {
     outline-offset: 2px;
   }
 }
+
+@media (min-width: 1024px) {
+  .experience-panel {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transform: translateX(24px);
+    pointer-events: none;
+    transition:
+      opacity 400ms ease,
+      transform 400ms ease;
+  }
+
+  .experience-panel[data-state="active"] {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+  }
+
+  .experience-panel[data-panel="competitions"][data-state="inactive"] {
+    transform: translateX(-24px);
+  }
+}
+
+/* ==================== Animations ==================== */
+@keyframes glitch-top {
+  0%,
+  87%,
+  100% {
+    opacity: 0;
+    transform: translate(0);
+  }
+  88% {
+    opacity: 0.9;
+    clip-path: polygon(0 10%, 100% 10%, 100% 32%, 0 32%);
+    transform: translate(-3px, 0);
+    color: #ff2ef7;
+  }
+  89% {
+    opacity: 0.9;
+    clip-path: polygon(0 55%, 100% 55%, 100% 72%, 0 72%);
+    transform: translate(3px, 0);
+    color: #00e5ff;
+  }
+  90% {
+    opacity: 0;
+  }
+}
+@keyframes glitch-bot {
+  0%,
+  91%,
+  100% {
+    opacity: 0;
+    transform: translate(0);
+  }
+  92% {
+    opacity: 0.8;
+    clip-path: polygon(0 60%, 100% 60%, 100% 80%, 0 80%);
+    transform: translate(4px, 0);
+    color: #ff2ef7;
+  }
+  93% {
+    opacity: 0.8;
+    clip-path: polygon(0 20%, 100% 20%, 100% 40%, 0 40%);
+    transform: translate(-4px, 0);
+    color: #00e5ff;
+  }
+  94% {
+    opacity: 0;
+  }
+}
+
+@keyframes cursor-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+@keyframes glow-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 16px rgba(34, 211, 238, 0.18);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(34, 211, 238, 0.4);
+  }
+}
+
+/* ==================== Animations ==================== */
+
+.glitch-wrap {
+  position: relative;
+  display: inline-block;
+}
+.glitch-wrap::before,
+.glitch-wrap::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  pointer-events: none;
+}
+.glitch-wrap::before {
+  animation: glitch-top 9s infinite;
+  z-index: 1;
+}
+.glitch-wrap::after {
+  animation: glitch-bot 9s 0.15s infinite;
+  z-index: 1;
+}
+.cursor-blink {
+  animation: cursor-blink 1s step-end infinite;
+}
+.cta-glow {
+  animation: glow-pulse 3s ease-in-out infinite;
+}

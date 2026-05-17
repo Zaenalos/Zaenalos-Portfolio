@@ -72,7 +72,15 @@ type RootLayoutProps = {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en" className={cn(jetBrainsMono.variable, "font-sans")}>
+    <html
+      lang="en"
+      className={cn(
+        jetBrainsMono.variable,
+        "font-sans",
+        "h-full",
+        "antialiased",
+      )}
+    >
       <body className="min-h-screen bg-background text-foreground">
         {children}
         <SpeedInsights />
