@@ -133,15 +133,15 @@ export function PortfolioClient() {
     }
 
     // ── Private project alert ──────────────────────────────────────────────────
-    const zaenalosVM =
-      document.querySelector<HTMLAnchorElement>("#zaenalos-vm");
-    if (zaenalosVM) {
+    const xynthex =
+      document.querySelector<HTMLAnchorElement>("#xynthex");
+    if (xynthex) {
       const handleClick = (event: MouseEvent) => {
         event.preventDefault();
         window.alert("Sorry, but this is a private project.");
       };
-      zaenalosVM.addEventListener("click", handleClick);
-      cleanups.push(() => zaenalosVM.removeEventListener("click", handleClick));
+      xynthex.addEventListener("click", handleClick);
+      cleanups.push(() => xynthex.removeEventListener("click", handleClick));
     }
 
     // ── Three.js starfield ─────────────────────────────────────────────────────
@@ -317,7 +317,7 @@ export function PortfolioClient() {
         li.innerHTML = `
           <div class="flex min-w-0 items-center gap-2.5">
             <span class="shrink-0 text-emerald-500/45 transition-colors group-hover:text-emerald-400">›</span>
-            <span class="truncate text-foreground/65 transition-colors group-hover:text-foreground">${name}</span>
+            <span class="text-foreground/65 transition-colors group-hover:text-foreground">${name}</span>
           </div>
           <span class="ml-4 shrink-0 text-muted-foreground/40">${year}</span>
         `;

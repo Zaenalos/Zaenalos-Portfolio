@@ -216,7 +216,7 @@ export default function Home() {
                           { key: "backend_systems", cls: "text-cyan-400" },
                           { key: "cybersecurity", cls: "text-blue-400" },
                           { key: "reverse_eng", cls: "text-purple-400" },
-                          { key: "compiler_ir", cls: "text-orange-400" },
+                          { key: "compiler_eng", cls: "text-orange-400" },
                         ].map(({ key, cls }) => (
                           <p
                             key={key}
@@ -491,7 +491,7 @@ export default function Home() {
                 {/* Body */}
                 <div className="flex flex-1 flex-col p-5">
                   <h3 className="font-semibold text-foreground">
-                    Competitions
+                    Competitions & Events
                   </h3>
                   <p className="mt-0.5 mb-5 text-xs text-muted-foreground">
                     Selected events and competitions.
@@ -590,7 +590,7 @@ export default function Home() {
                       ~/projects/
                     </span>
                     <span className="font-semibold text-purple-300">
-                      zaenalos-vm
+                      xynthex
                     </span>
                   </span>
                   <Badge
@@ -602,10 +602,9 @@ export default function Home() {
                 </div>
                 <div className="flex flex-1 flex-col gap-4 p-5">
                   <p className="text-sm leading-relaxed text-muted-foreground">
-                    A Lua obfuscation tool that protects code by implementing
-                    virtualization — translating bytecode into a custom ISA
-                    executed by an embedded VM with an SSA-style IR lowering
-                    pipeline.
+                    A Lua obfuscation tool that protects code through 
+                    virtualization and multi-stage transformations, compiling 
+                    Lua source into custom bytecode executed by an embedded VM.
                   </p>
                   <div className="flex flex-wrap gap-1.5">
                     {[
@@ -628,7 +627,7 @@ export default function Home() {
                 <div className="flex justify-end rounded-b-lg border-t border-border/30 bg-background/30 px-5 py-3">
                   <a
                     href="#projects"
-                    id="zaenalos-vm"
+                    id="xynthex"
                     className={cn(
                       buttonVariants({ variant: "ghost", size: "sm" }),
                       "font-mono text-xs text-muted-foreground hover:text-purple-300",
@@ -664,7 +663,7 @@ export default function Home() {
                     designed for compiler front-end use.
                   </p>
                   <div className="flex flex-wrap gap-1.5">
-                    {["Lua", "Lexer", "Tokenizer", "Compiler Front-end"].map(
+                    {["Lua", "Lexer", "Tokenizer", "Open Source"].map(
                       (t) => (
                         <span
                           key={t}
@@ -819,8 +818,7 @@ export default function Home() {
                 Credentials and achievements
               </h2>
               <p className="mt-2 text-sm text-muted-foreground">
-                Competition participations, internship completions, and course
-                certificates.
+                Competition participations, course certificates, and other achievements.
               </p>
             </div>
             <CertificationsClient />
